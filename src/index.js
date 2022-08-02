@@ -1,20 +1,21 @@
 import './style.css';
-// import Logo from './los-pollos-logo.png';
+import buildInitial from './buildInitial';
+import buildHome from './buildHome';
+import buildMenu from './buildMenu';
+import buildContact from './buildContact';
 
-// function component() {
-//   const element = document.getElementById('content');
+buildInitial();
 
-//   element.innerHTML = `What's up!`;
+buildHome();
 
-//   // Add the image to our existing div.
+let navBar = document.getElementsByTagName('li');
 
-//   const myLogo = new Image();
-
-//   myLogo.src = Logo;
-
-//   element.appendChild(myLogo);
-
-//   return element;
-// }
-
-// document.body.appendChild(component());
+for (const item of navBar) {
+  if (item.innerHTML === 'Home') {
+    item.addEventListener('click', buildHome);
+  } else if (item.innerHTML === 'Menu') {
+    item.addEventListener('click', buildMenu);
+  } else if (item.innerHTML === 'Contact') {
+    item.addEventListener('click', buildContact);
+  }
+}
